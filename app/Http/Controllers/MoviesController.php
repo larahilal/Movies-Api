@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\movies;
 
+use App\actors;
+
 class MoviesController extends Controller
 {
     
@@ -23,7 +25,21 @@ class MoviesController extends Controller
 
         $movie=movies::where('movie_title', $title)->with('director')->get();
 
-        return response()->json($movie);
+        return response()->json($movie); 
+
+
+
+    }
+
+    public function display_movie_info(){
+
+    	$actors = actors::all();
+
+    	foreach ($actors as $actor) {
+    		
+    		return response()->json($actor->movies);
+
+    	}
 
     }
 }

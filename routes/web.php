@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('movies', 'MoviesController@index');
 
 Route::post('/', 'MoviesController@find_movie');
+
+Route::get('display_movies', 'MoviesController@display_movie_info');
+
+Route::get('display_actors', 'ActorsController@display_actor_info');

@@ -11,4 +11,11 @@ class movies extends Model
     	return $this->belongsTo('App\directors');
 
     }
+
+    public function actors(){
+
+    	return $this->belongsToMany('App\actors','actors_movies','movie_id,actor_id');
+
+    }
+
 }
