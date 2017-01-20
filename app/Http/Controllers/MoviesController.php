@@ -33,13 +33,17 @@ class MoviesController extends Controller
 
     public function display_movie_info(){
 
-    	$actors = actors::all();
+    	$actors = actors::with('movies')->get();
+
+    	$movies = array();
 
     	foreach ($actors as $actor) {
     		
-    		return response()->json($actor->movies);
+    		$movies[] = $actor->movies;
 
     	}
+
+    	return response()->json($movies);
 
     }
 }

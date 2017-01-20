@@ -13,14 +13,17 @@ class ActorsController extends Controller
     
     public function display_actor_info(){
 
-    	$actors = actors::all();
+    	$actors = actors::with('movies')->get();
+
+    	$actors_array = array();
 
     	foreach ($actors as $actor){
 
-    		return response()->json($actor);
+    		$actors_array[] = $actor;
 
     	}
 
+    	return response()->json($actors_array);
 
     }
 }
