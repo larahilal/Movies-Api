@@ -8,6 +8,8 @@ use App\movies;
 
 use App\actors;
 
+use App\directors;
+
 class MoviesController extends Controller
 {
     
@@ -44,6 +46,53 @@ class MoviesController extends Controller
     	}
 
     	return response()->json($movies);
+
+    }
+
+    public function insert_movie_form(){
+
+        $directors = directors::all();
+        
+        return view('movies.insert_movie', array("directors" => $directors));
+
+    }
+
+    public function store_new_movie(Request $request){
+
+        $movie = new movies;
+
+        $movie->movie_title = $request->movie_title;
+
+        $movie->year_released = $request->year_released;
+
+        $movie->description = $request->description;
+
+        $movie->save();
+
+
+
+        $directors = directors::all();
+
+
+        foreach ($directors AS $director) {
+
+            if ( ($request->first_name == $director->first_name) and ($request->last_name==$director->last_name) ) {
+
+                echo "director already in database"
+            } else {
+
+                $director = new directors;
+
+                $director->first_name = $request->first_name;
+
+                $director->last_name = $request->last_name;
+
+                $director->save();
+
+            }
+        }
+
+        echo "Movie inserted!";
 
     }
 }

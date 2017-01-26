@@ -81,6 +81,11 @@
                         <input type="submit" value="Submit">
 
                     </form>
+
+                    <br>
+
+                    Want to add a new movie? Click <a href="http://127.0.0.1:8000/insert_movie_form">Here</a>
+
                 </div>
 
                 
