@@ -74,6 +74,8 @@
 
     @yield('insert_movie')
 
+    @yield('insert_movie_with_new_director')
+
     </div>
 
                 

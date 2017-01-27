@@ -67,31 +67,10 @@ class MoviesController extends Controller
 
         $movie->description = $request->description;
 
+        $movie->director_id = $request->director_id;
+
         $movie->save();
-
-
-
-        $directors = directors::all();
-
-
-        foreach ($directors AS $director) {
-
-            if ( ($request->first_name == $director->first_name) and ($request->last_name==$director->last_name) ) {
-
-                echo "director already in database"
-            } else {
-
-                $director = new directors;
-
-                $director->first_name = $request->first_name;
-
-                $director->last_name = $request->last_name;
-
-                $director->save();
-
-            }
-        }
-
+        
         echo "Movie inserted!";
 
     }

@@ -15,14 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Movies related routes
+
 Route::get('movies', 'MoviesController@index');
 
 Route::post('/', 'MoviesController@find_movie');
 
 Route::get('display_movies', 'MoviesController@display_movie_info');
 
-Route::get('display_actors', 'ActorsController@display_actor_info');
-
 Route::get('insert_movie_form', 'MoviesController@insert_movie_form');
 
 Route::post('store_new_movie', 'MoviesController@store_new_movie');
+
+// Actors related routes
+
+Route::get('display_actors', 'ActorsController@display_actor_info');
+
+// Directors related routes
+
+Route::get('insert_movie_with_new_director_form', 'DirectorsController@insert_movie_with_director_form');
+
+Route::post('store_new_movie_with_new_director', 'DirectorsController@insert_movie_with_new_director');
