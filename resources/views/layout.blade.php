@@ -76,6 +76,10 @@
 
     @yield('insert_movie_with_new_director')
 
+    @yield('register_user')
+
+    @yield('login_form')
+
     </div>
 
                 

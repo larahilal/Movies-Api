@@ -21,4 +21,9 @@ class movies extends Model
 
     }
 
+    public function users(){
+
+    	return $this->belongsTo('App\users');
+    }
+
 }

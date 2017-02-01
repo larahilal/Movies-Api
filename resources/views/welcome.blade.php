@@ -84,11 +84,11 @@
 
                     <br>
 
-                    Want to add a new movie? Click <a href="http://127.0.0.1:8000/insert_movie_form">Here</a>
+                    <a href="http://127.0.0.1:8000/register_user">Register</a> or <a href="http://127.0.0.1:8000/login_form">login</a> to enter a new movie.
 
                 </div>
 
-                
+        
             </div>
         </div>
     </body>
