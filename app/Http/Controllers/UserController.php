@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 use App\users;
 
 use App\movies;
-
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -31,7 +29,7 @@ class UserController extends Controller
 
     	$user->email = $request->email;
 
-    	$user->password = $request->password;
+    	$user->password = Hash::make($request->password);
 
     	$user->save();
 
@@ -45,12 +43,16 @@ class UserController extends Controller
 
     }
 
-    public function authenticate(){
+    public function authenticate(Request $request){
 
-    	if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            // Authentication passed...
+    	if (Auth::attempt(array('email' => $request->email, 'password' => $request->password))) {
+            
+            die('i am logged in');
+
             return redirect('movies');
         }
+
+        die('did not work');
 
     }
 

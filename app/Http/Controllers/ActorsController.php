@@ -26,4 +26,5 @@ class ActorsController extends Controller
     	return response()->json($actors_array);
 
     }
+    
 }
