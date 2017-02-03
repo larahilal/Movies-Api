@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 
@@ -49,3 +49,13 @@ Route::post('user_registration', 'UserController@store_user');
 Route::get('login_form', 'UserController@login_form');
 
 Route::post('handle_login', 'UserController@authenticate');
+
+Route::get('my_account', 'AccountController@my_account');
+
+// Edit movie route
+
+Route::get('retrieve_to_edit', 'EditController@retrieve_to_edit');
+
+Route::get('edit_form', 'EditController@edit_form');
+
+Route::post('edit', 'EditController@edit');

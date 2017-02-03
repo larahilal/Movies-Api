@@ -10,6 +10,7 @@ use App\movies;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
+
 class UserController extends Controller
 {
     
@@ -39,6 +40,11 @@ class UserController extends Controller
 
     public function login_form(){
 
+        if(Auth::check()){
+
+            return redirect('http://127.0.0.1:8000/insert_movie_form');
+        }
+
     	return view ('auth.login');
 
     }
@@ -46,10 +52,10 @@ class UserController extends Controller
     public function authenticate(Request $request){
 
     	if (Auth::attempt(array('email' => $request->email, 'password' => $request->password))) {
-            
-            die('i am logged in');
 
-            return redirect('movies');
+        //die('work');
+
+            return redirect('http://127.0.0.1:8000/movies');
         }
 
         die('did not work');

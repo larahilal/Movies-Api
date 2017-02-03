@@ -80,6 +80,12 @@
 
     @yield('login_form')
 
+    @yield('my_account')
+
+    @yield('retrieve_to_edit')
+
+    @yield('edit_form')
+
     </div>
 
                 

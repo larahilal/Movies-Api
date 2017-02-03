@@ -8,6 +8,10 @@ use App\directors;
 
 use App\movies;
 
+use App\users;
+
+use Illuminate\Support\Facades\Auth;
+
 class DirectorsController extends Controller
 {
     
@@ -37,6 +41,8 @@ class DirectorsController extends Controller
         $movie->description = $request->description;
 
         $movie->director_id = $director->id;
+
+        $movie->users_id = Auth::user()->id;
 
         $movie->save();
 
