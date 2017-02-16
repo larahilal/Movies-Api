@@ -10,26 +10,36 @@ use App\users;
 
 class EditController extends Controller
 {
-    public function retrieve_to_edit(){
-
-
-    	return view('movies.retrieve_to_edit');
-
-
-    }
+   
 
     public function edit_form(Request $request){
 
-    	$movie = $request->input('movie_title');
+   		$movie_id = $request->movieId;
 
-    	return view('edit_form');
+   		$movie = movies::where('id', $movie_id)->first();
+
+   		return view('movies.edit_form', array('movie' => $movie));
+
 
     }
 
-    public function edit(Request $request){
+    public function update(Request $request){
 
-    	
+    	$movie_id = $request->movieId;
 
+    	$movie = movies::where('id', $movie_id)->first();
+
+    	$movie->movie_title = $request->movie_title;
+
+    	$movie->year_released = $request->year_released;
+
+    	$movie->description = $request->description;
+
+    	$movie->save();
+
+    	echo "Movie updated";
+
+    	return redirect('http://127.0.0.1:8000/my_account');
 
     }
 

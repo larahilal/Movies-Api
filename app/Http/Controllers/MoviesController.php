@@ -27,8 +27,22 @@ class MoviesController extends Controller
 
         $movie=movies::where('movie_title', $title)->with('director')->get();
 
-        return response()->json($movie); 
+        //return response()->json($movie);
 
+
+        if (isset($movie) and count($movie)<1){
+
+            echo "Sorry, this movie is not in our database";
+
+            return redirect ('http://127.0.0.1:8000/');
+        
+        } else {
+
+        return response()->json($movie);
+
+        }
+
+        
 
 
     }

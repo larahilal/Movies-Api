@@ -40,7 +40,7 @@ class UserController extends Controller
 
     public function login_form(){
 
-        if(Auth::check()){
+        if(Auth::check('laravel_session')){
 
             return redirect('http://127.0.0.1:8000/insert_movie_form');
         }

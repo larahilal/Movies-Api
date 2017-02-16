@@ -5,7 +5,7 @@
 	@foreach ($movies as $movie)
 
 
-	{{$movie ->movie_title}}
+	{{$movie->movie_title}}
 
 	</br>
 
