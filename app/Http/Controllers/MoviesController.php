@@ -27,10 +27,8 @@ class MoviesController extends Controller
 
         $movie=movies::where('movie_title', $title)->with('director')->get();
 
-        //return response()->json($movie);
 
-
-        if (isset($movie) and count($movie)<1){
+        if (isset($movie)and count($movie)<1){
 
             echo "Sorry, this movie is not in our database";
 
@@ -38,7 +36,7 @@ class MoviesController extends Controller
         
         } else {
 
-        return response()->json($movie);
+            return response()->json($movie);
 
         }
 
