@@ -84,6 +84,8 @@
 
     @yield('edit_form')
 
+    @yield('content_loggedinHome')
+
     </div>
 
                 

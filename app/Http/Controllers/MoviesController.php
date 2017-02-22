@@ -10,6 +10,8 @@ use App\actors;
 
 use App\directors;
 
+use Illuminate\Support\Facades\Auth;
+
 class MoviesController extends Controller
 {
     
@@ -40,9 +42,6 @@ class MoviesController extends Controller
 
         }
 
-        
-
-
     }
 
     public function display_movie_info(){
@@ -63,10 +62,16 @@ class MoviesController extends Controller
 
     public function insert_movie_form(){
 
+        if(Auth::check('laravel_session')){
+
         $directors = directors::all();
         
         return view('movies.insert_movie', array("directors" => $directors));
 
+        } else {
+
+            return redirect('http://127.0.0.1:8000');
+        }
     }
 
     public function store_new_movie(Request $request){
@@ -80,6 +85,8 @@ class MoviesController extends Controller
         $movie->description = $request->description;
 
         $movie->director_id = $request->director_id;
+
+        $movie->users_id = Auth::user()->id;
 
         $movie->save();
         

@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\users;
 
 use App\movies;
+
 use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Auth;
 
 
@@ -53,12 +55,18 @@ class UserController extends Controller
 
     	if (Auth::attempt(array('email' => $request->email, 'password' => $request->password))) {
 
-        //die('work');
-
-            return redirect('http://127.0.0.1:8000/movies');
+            return redirect('http://127.0.0.1:8000/loggedinHome');
         }
 
         die('did not work');
+
+    }
+
+    public function logout(){
+
+        Auth::logout();
+
+        return redirect('http://127.0.0.1:8000');
 
     }
 

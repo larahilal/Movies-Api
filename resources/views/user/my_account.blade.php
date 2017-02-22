@@ -14,5 +14,11 @@ Hello! These are your movies:</br></br>
 
 	@endforeach
 
+	</br>
+
+	Want to log out? Click <a href="http://127.0.0.1:8000/logout"> here</a>
+
+
+
 
 @stop

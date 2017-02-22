@@ -44,6 +44,12 @@ Route::post('handle_login', 'UserController@authenticate');
 
 Route::get('my_account', 'AccountController@my_account');
 
+Route::get('loggedinHome', 'AccountController@myHome');
+
+// Logout route
+
+Route::get('logout', 'UserController@logout');
+
 // Edit movie route
 
 Route::get('edit_form', 'EditController@edit_form');
@@ -53,3 +59,5 @@ Route::post('update', 'EditController@update');
 // Delete movie
 
 Route::get('delete', 'DeleteController@delete');
+
+
